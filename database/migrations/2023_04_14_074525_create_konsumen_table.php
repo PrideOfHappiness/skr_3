@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('kode_konsumen', 8)->unique();
             $table->string('nama');
             $table->string('kode_wilayah', 7)->nullable();
-            $table->string('nama_wilayah', 25)->nullable();
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('no_ktp', 16)->nullable();

@@ -15,7 +15,6 @@ class Konsumen extends Model
         'kode_konsumen',
         'nama',
         'kode_wilayah',
-        'nama_wilayah',
         'alamat',
         'kecamatan',
         'no_ktp',
