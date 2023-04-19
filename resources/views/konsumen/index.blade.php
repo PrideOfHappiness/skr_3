@@ -20,24 +20,22 @@
                 <th>No.</th>
                 <th>Konsumen</th>
                 <th>Kecamatan</th>
-                <th>Daerah</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody> 
-                @foreach ($data as $konsumen)
+                @foreach ($dataKonsumen as $kons)
                 <tr>
-                    <td>{{ $konsumen->id }} </td>
-                    <td>{{ $konsumen->nama_konsumen }} </td>
-                    <td>{{ $konsumen->kecamatan }} </td>
-                    <td>{{ $karyawan->kode_wilayah_konsumen->nama_wilayah }}
+                    <td>{{ $kons->id }} </td>
+                    <td>{{ $kons->nama }} </td>
+                    <td>{{ $kons->kecamatan }} </td>
                     <td> 
-                        <form action = "{{ route('konsumen.destroy', $konsumen->id) }}" method="Post">
-                            <a class="badge bg-info" href="{{ route('konsumen.show', $konsumen->id)}}">Detail</span></a>
-                            <a class="badge bg-warning" href="{{ route('konsumen.edit', $konsumen->id)}}">Edit</span></a>
+                        <form action = "{{ route('konsumen.destroy', $kons->id) }}" method="Post">
+                            <a class="badge bg-info" href="{{ route('konsumen.show', $kons->id)}}">Detail Konsumen</span></a>
+                            <a class="badge bg-warning" href="{{ route('konsumen.edit', $kons->id)}}">Edit Data</span></a>
                             @csrf
                                 @method("DELETE")
-                                <button type="submit" class="badge bg-danger"> Delete </button>
+                                <button type="submit" class="badge bg-danger"> Hapus Data </button>
                         </form>
                     </td>
                 </tr>

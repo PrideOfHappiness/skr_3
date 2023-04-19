@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\KonsumenController;
+use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,7 @@ Route::middleware(['Karyawan'])->group(function() {
         return view('dashboard/dashboardKaryawan');
     });
     Route::resource('konsumen', KonsumenController::class);
+    Route::resource('finance', FinanceController::class);
 });
 
 //Admin
@@ -45,6 +48,7 @@ Route::middleware(['Admin'])->group(function() {
     });
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('wilayah', WilayahController::class);
+    Route::resource('barang', BarangController::class);
 });
 
 //Pemilik

@@ -14,9 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('finance', function (Blueprint $table) {
-            $table->string('kode_financing_customer', 8)->primary();
+            $table->id();
+            $table->string('kode_financing_customer', 8)->unique();
             $table->string('nama_penanggung');
+            $table->bigInteger('kode_konsumen')->unsigned();
             $table->timestamps();
+
+            $table->foreign('kode_konsumen')->references('id')->on('konsumen');
         });
     }
 

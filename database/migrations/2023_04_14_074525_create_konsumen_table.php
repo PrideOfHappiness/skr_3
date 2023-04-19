@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('kode_konsumen', 8)->unique();
             $table->string('nama');
-            $table->string('kode_wilayah', 7)->nullable();
+            $table->bigInteger('wilayah')->unsigned();
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('no_ktp', 16)->nullable();
             $table->string('no_telp', 15)->nullable();
             $table->timestamps();
 
-            $table->foreign('kode_wilayah')->references('kode_wilayah')->on('wilayah');
+            $table->foreign('wilayah')->references('id')->on('wilayah');
         });
     }
 

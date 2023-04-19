@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('kode_barang', 25)->primary();
             $table->string('nama_barang', 100);
             $table->string('harga', 25);
+            $table->string('nama_foto');
             $table->timestamps();
         });
     }

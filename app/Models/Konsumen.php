@@ -14,20 +14,14 @@ class Konsumen extends Model
     protected $fillable = [
         'kode_konsumen',
         'nama',
-        'kode_wilayah',
+        'wilayah',
         'alamat',
         'kecamatan',
         'no_ktp',
         'no_telp',
     ];
 
-    /**
-     * The kode_wilayah_konsumen that belong to the Konsumen
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function kode_wilayah_konsumen(): BelongsToMany
-    {
-        return $this->belongsToMany(Wilayah::class, 'kode_wilayah');
+    public function wilayah_konsumen(){
+        return $this->belongsTo(Wilayah::class, "wilayah");
     }
 }

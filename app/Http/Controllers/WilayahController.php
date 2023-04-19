@@ -8,8 +8,8 @@ use App\Models\Wilayah;
 class WilayahController extends Controller
 {
     public function index(){
-        $data = Wilayah::all();
-        return view('wilayah.index', compact('data'));
+        $dataWilayah = Wilayah::all();
+        return view('wilayah.index', compact('dataWilayah'));
     }
 
     public function create(){

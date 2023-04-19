@@ -49,7 +49,7 @@
                   </a>
             </li>
             <li class="nav-item"> 
-                <a href="#" class="nav-link">
+                <a href="/finance" class="nav-link">
                   <i class="fa-solid fa-coins"></i>
                     <p>
                       Finance Konsumen

@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody> 
-                @foreach ($data as $karyawan)
+                @foreach ($dataKaryawan as $karyawan)
                 <tr>
                     <td>{{ $karyawan->id }} </td>
                     <td>{{ $karyawan->kode_karyawan }} </td>

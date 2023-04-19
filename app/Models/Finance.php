@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Finance extends Model
 {
     use HasFactory;
+
+    protected $table = 'finance';
+
+    protected $fillable = [
+        'kode_financing_customer',
+        'nama_penanggung',
+        'kode_konsumen',
+    ];
+    
 }

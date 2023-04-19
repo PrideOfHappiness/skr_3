@@ -17,14 +17,16 @@
         <table class="table">
             <thead>
             <tr>
+                <th>No.</th>
                 <th>Kode Wilayah</th>
                 <th>Wilayah</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody> 
-                @foreach ($data as $wilayah)
+                @foreach ($dataWilayah as $wilayah)
                 <tr>
+                    <td>{{ $wilayah->id }} </td>
                     <td>{{ $wilayah->kode_wilayah }} </td>
                     <td>{{ $wilayah->nama_wilayah }} </td>
                     <td> 

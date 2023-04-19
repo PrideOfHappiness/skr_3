@@ -16,13 +16,7 @@ class Wilayah extends Model
         'nama_wilayah',
     ];
 
-    /**
-     * Get all of the wilayahKonsumen for the Wilayah
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function wilayahKonsumen(): HasMany
-    {
-        return $this->hasMany(Konsumen::class, 'kode_wilayah');
+    public function wilayah(){
+        return $this->hasMany(Konsumen::class, "wilayah");
     }
 }

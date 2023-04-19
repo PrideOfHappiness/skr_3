@@ -8,8 +8,8 @@ use App\Models\User;
 class KaryawanController extends Controller
 {
     public function index(){
-        $data = User::paginate(10);
-        return view('karyawan.index', compact('data'));
+        $dataKaryawan = User::paginate(10);
+        return view('karyawan.index', compact('dataKaryawan'));
     }
 
     public function create(){
