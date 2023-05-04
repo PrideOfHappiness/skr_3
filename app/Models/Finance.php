@@ -16,5 +16,9 @@ class Finance extends Model
         'nama_penanggung',
         'kode_konsumen',
     ];
+
+    public function konsumen_finance(){
+        return $this->belongsTo(Konsumen::class, "kode_konsumen");
+    }
     
 }

@@ -11,6 +11,8 @@
     <section class="content"> 
         <form action = "{{route('karyawan.update', $karyawan->id)}}" method="post"> 
             @csrf
+            @method('PUT')
+            
             <input type="hidden" id="user_id" name="user_id" required value="{{ auth()->user()->id }}">
             <div class="mb-3">
                 <label for="kode_karyawan" class="form-label">Kode Karyawan</label>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bpkb_stnk', function (Blueprint $table) {
             $table->id();
             $table->string('kode_customer');
-            $table->string('kode_barang');
+            $table->bigInteger('kode_barang')->unsigned();
             $table->string('nama_bpkb_stnk');
             $table->string('nama_customer');
             $table->string('alamat_customer');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('tanggal_ambil');
             $table->timestamps();
 
-            $table->foreign('kode_barang')->references('kode_barang')->on('barang');
+            $table->foreign('kode_barang')->references('id')->on('barang');
         });
     }
 

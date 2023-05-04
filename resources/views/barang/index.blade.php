@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @include('template/header')
-    <title>Data Finance Konsumen</title>
+    <title>Data Barang</title>
 </head>
 <body>
     @include('template/navbar')
@@ -11,31 +11,33 @@
     <section class="content"> 
         <br>
         <div class = "pull-right mb-2">
-            <a class="btn btn-success" href="{{ route('finance.create') }}"> Tambah Data Finance Konsumen</a>
+            <a class="btn btn-success" href="{{ route('barang.create') }}"> Tambah Data Barang</a>
         </div>
 
         <table class="table">
             <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Konsumen</th>
-                <th>Penanggung</th>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody> 
-                @foreach ($dataFinance as $finance) 
+                @foreach ($dataBarang as $barang)
                     <tr> 
-                        <td> {{ $finance->id }} </td>
-                        <td> {{ $finance->konsumen_finance->nama }} </td>
-                        <td> {{ $finance->nama_penanggung }} </td>
+                        <td> {{ $barang->id }}</td>
+                        <td> {{ $barang->kode_barang }}</td>
+                        <td> {{ $barang->nama_barang }}</td>
                         <td> 
-                            <a class="badge bg-info" href="{{ route('finance.show', $finance->id)}}">Detail</span></a>
+                            <a class="badge bg-info" href="{{ route('barang.show', $barang->id)}}">Detail</span></a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {!! $dataBarang->links() !!}
     </section>
     @include('template/footer')
 </body>
+</html>

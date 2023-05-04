@@ -24,4 +24,8 @@ class Konsumen extends Model
     public function wilayah_konsumen(){
         return $this->belongsTo(Wilayah::class, "wilayah");
     }
+
+    public function konsumen_finance(){
+        return $this->hasMany(Finance::class, "kode_konsumen");
+    }
 }

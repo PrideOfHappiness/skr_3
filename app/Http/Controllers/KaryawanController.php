@@ -26,21 +26,29 @@ class KaryawanController extends Controller
             'no_telp' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'confirm_password' => 'required',
         ]);
 
-        $user = User::create([
-            'kode_karyawan'=> $request->kode_karyawan,
-            'nama_karyawan'=> $request->nama_karyawan,
-            'alamat'=> $request->alamat,
-            'gender'=> $request->gender,
-            'status'=> $request->status,
-            'no_telp'=> $request->no_telp,
-            'email'=> $request->email,
-            'password'=> bcrypt($request->password),
-        ]);
+        $password1 = $request->password;
+        $password2 = $request->confirm_password;
 
-        return redirect()->route('karyawan.index')
+        if($password1 == $password2){
+            $user = User::create([
+                'kode_karyawan'=> $request->kode_karyawan,
+                'nama_karyawan'=> $request->nama_karyawan,
+                'alamat'=> $request->alamat,
+                'gender'=> $request->gender,
+                'status'=> $request->status,
+                'no_telp'=> $request->no_telp,
+                'email'=> $request->email,
+                'password'=> bcrypt($password1),
+            ]);
+            return redirect()->route('karyawan.index')
             ->with('success', 'Data User berhasil ditambahkan!');
+        } else{
+            return redirect()->route('karyawan.create')
+                ->with('error', "Password tidak cocok!");
+        }   
     }
 
     public function show(User $karyawan){

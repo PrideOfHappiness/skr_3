@@ -14,10 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->string('kode_barang', 25)->primary();
+            $table->id();
+            $table->string('kode_barang', 25);
             $table->string('nama_barang', 100);
+            $table->string('warna');
             $table->string('harga', 25);
-            $table->string('nama_foto');
+            $table->string('namaFile');
             $table->timestamps();
         });
     }
