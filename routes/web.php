@@ -7,6 +7,9 @@ use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\KonsumenController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\PengirimanController;
+use App\Http\Controllers\LaporanPenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +42,9 @@ Route::middleware(['Karyawan'])->group(function() {
     });
     Route::resource('konsumen', KonsumenController::class);
     Route::resource('finance', FinanceController::class);
+    Route::resource('penjualan', PenjualanController::class);
+    Route::get('/penjualan/{id}/cetak_fj', [PenjualanController::class, 'download']);
+    Route::resource('pengiriman', PengirimanController::class);
 });
 
 //Admin
@@ -56,6 +62,10 @@ Route::middleware(['Pemilik'])->group(function() {
     Route::get('/dashboardPemilik', function(){
         return view('dashboard/dashboardPemilik');
     });
+    Route::get('/listMotor/pilihTanggal', [LaporanPenjualanController::class, 'getFormTanggal'])->name('pilihTanggalMotor');
+    Route::post('/listMotor/prosesDataSepedaMotor', [LaporanPenjualanController::class, 'prosesTanggal'])->name('prosesDataMotor');
+    Route::get('/listMotor/allData', [LaporanPenjualanController::class, 'getSeluruhData'])->name('getAllMotorData');
+
 });
 
 

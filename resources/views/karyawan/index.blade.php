@@ -45,6 +45,5 @@
             </tbody>
         </table>
     </section>
-
     @include('template/footer')
 </body>

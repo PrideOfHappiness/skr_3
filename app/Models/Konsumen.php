@@ -28,4 +28,12 @@ class Konsumen extends Model
     public function konsumen_finance(){
         return $this->hasMany(Finance::class, "kode_konsumen");
     }
+
+    public function konsumen_penjualan(){
+        return $this->hasMany(Penjualan::class, "kode_konsumen");
+    }
+
+    public function konsumen_pengiriman(){
+        return $this->hasMany(Pengiriman::class, "kode_customer");
+    }
 }

@@ -12,10 +12,6 @@
         <form action={{ route('konsumen.store') }} method="post"> 
             @csrf
             <div class="mb-3">
-                <label for="kode_konsumen" class="form-label">Kode Konsumen</label>
-                <input type="text" class="form-control" id="kode_konsumen" name="kode_konsumen" placeholder="Kode Konsumen" required>
-            </div>
-            <div class="mb-3">
                 <label for="nama_konsumen" class="form-label">Nama Konsumen</label>
                 <input type="text" class="form-control" id="nama_konsumen" name="nama_konsumen" placeholder="Nama Konsumen" required>
             </div>

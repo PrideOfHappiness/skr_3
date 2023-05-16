@@ -6,7 +6,7 @@
 </head>
 <body>
     @include('template/navbar')
-    @include('template/sidebarKaryawan')
+    @include('template/sidebarAdmin')
 
     <section class="content"> 
         <br>

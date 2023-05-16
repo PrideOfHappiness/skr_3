@@ -21,7 +21,7 @@ return new class extends Migration
             $table->bigInteger('kode_karyawan')->unsigned();
             $table->bigInteger('kode_barang')->unsigned();
             $table->string('no_mesin', 12)->unique();
-            $table->string('no_rangka', 14)->unique();
+            $table->string('no_rangka', 17)->unique();
             $table->string('tahun_rakit', 4);
             $table->string('warna_sepeda_motor', 50);
             $table->string('nama_barang', 100);
@@ -31,12 +31,9 @@ return new class extends Migration
             $table->string('no_ktp_customer', 16);
             $table->string('foto_ktp_customer');
             $table->string('no_telp_customer', 15);
-            $table->string('nama_bpkb_stnk', 100);
-            $table->string('alamat_bpkb_stnk');
-            $table->string('no_ktp_bpkb_stnk', 16);
             $table->string('nama_karyawan');
-            $table->string('komisi');
             $table->string('nama_dealer');
+            $table->string('harga_terjual');
             $table->timestamps();
 
             $table->foreign('kode_customer')->references('id')->on('konsumen');

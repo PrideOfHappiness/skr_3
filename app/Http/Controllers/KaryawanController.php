@@ -18,7 +18,6 @@ class KaryawanController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-            'kode_karyawan' => 'required',
             'nama_karyawan' => 'required',
             'alamat' => 'required',
             'gender' => 'required',
@@ -29,12 +28,19 @@ class KaryawanController extends Controller
             'confirm_password' => 'required',
         ]);
 
+        //Potong nama dan generate angka random
+        $nama = $request->nama_karyawan;
+        $kodeNama = strtoupper(substr($nama, 0, 2) . substr(strrchr($nama, " "), 1, 1));
+        $randomNumber = rand(1,9999);
+        $hasilKode = $kodeNama . $randomNumber;
+
+        //cek password
         $password1 = $request->password;
         $password2 = $request->confirm_password;
 
         if($password1 == $password2){
             $user = User::create([
-                'kode_karyawan'=> $request->kode_karyawan,
+                'kode_karyawan'=> $hasilKode,
                 'nama_karyawan'=> $request->nama_karyawan,
                 'alamat'=> $request->alamat,
                 'gender'=> $request->gender,
@@ -45,9 +51,12 @@ class KaryawanController extends Controller
             ]);
             return redirect()->route('karyawan.index')
             ->with('success', 'Data User berhasil ditambahkan!');
+        } else if($password1 != $password2){
+            return redirect()->route('karyawan.index')
+                ->with('error', 'Password tidak cocok!');
         } else{
             return redirect()->route('karyawan.create')
-                ->with('error', "Password tidak cocok!");
+                ->with('error', "Wajib masukkan password 2!");
         }   
     }
 

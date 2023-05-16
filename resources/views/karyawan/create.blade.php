@@ -12,10 +12,6 @@
         <form action={{ route('karyawan.store') }} method="post"> 
             @csrf
             <div class="mb-3">
-                <label for="kode_karyawan" class="form-label">Kode Karyawan</label>
-                <input type="text" class="form-control" id="kode_karyawan" name="kode_karyawan" placeholder="Kode Karyawan" required>
-            </div>
-            <div class="mb-3">
                 <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
                 <input type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="Nama Karyawan" required>
             </div>

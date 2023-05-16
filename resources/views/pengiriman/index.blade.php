@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @include('template/header')
-    <title>Data Penjualan</title>
+    <title>Pengiriman</title>
 </head>
 <body>
     @include('template/navbar')
@@ -11,7 +11,7 @@
     <section class="content"> 
         <br>
         <div class = "pull-right mb-2">
-            <a class="btn btn-success" href="{{ route('penjualan.create') }}"> Tambah Penjualan</a>
+            <a class="btn btn-success" href="{{ route('pengiriman.create') }}"> Buat Pengiriman</a>
         </div>
 
         <table class="table">
@@ -20,7 +20,8 @@
                     <th>No.</th>
                     <th>Nama Konsumen</th>
                     <th>Sepeda Motor</th>
-                    <th>Tanggal Buat Penjualan</th>
+                    <th>Pengirim</th>
+                    <th>Tanggal Pengiriman</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -28,8 +29,9 @@
                 @foreach ($dataPenjualan as $penjualan)
                 <tr>
                     <td>{{ $penjualan->id }} </td>
-                    <td>{{ $penjualan->nama_customer }} </td>
+                    <td>{{ $penjualan->nama_penerima }} </td>
                     <td>{{ $penjualan->nama_barang }} </td>
+                    <td>{{ $penjualan->nama_pengirim }} </td>
                     <th>{{ $penjualan->created_at }}
                     <td> 
                         <a class="badge bg-info" href="{{ route('penjualan.show', $penjualan->id)}}">Detail Penjualan</span></a>

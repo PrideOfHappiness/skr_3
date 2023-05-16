@@ -20,7 +20,6 @@ class KonsumenController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'kode_konsumen' => 'required',
             'nama_konsumen' => 'required',
             'kode_wilayah' => 'required',
             'alamat' => 'required',
@@ -29,8 +28,13 @@ class KonsumenController extends Controller
             'no_telp' => 'required',
         ]);
 
+        $nama = $request->nama_konsumen;
+        $kodeNama = strtoupper(substr($nama, 0, 2) . substr(strrchr($nama, " "), 1, 1));
+        $randomNumber = rand(1,9999);
+        $hasilKode = $kodeNama . $randomNumber;
+
         $konsumen = Konsumen::create([
-            'kode_konsumen' => $request->kode_konsumen,
+            'kode_konsumen' => $hasilKode,
             'nama' => $request->nama_konsumen,
             'wilayah' => $request->kode_wilayah,
             'alamat' => $request->alamat,

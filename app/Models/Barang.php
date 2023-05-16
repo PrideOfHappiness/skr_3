@@ -18,4 +18,12 @@ class Barang extends Model
         'harga',
         'namaFile',
     ];
+
+    public function kode_barang_penjualan(){
+        return $this->hasMany(Penjualan::class, "kode_barang");
+    }
+
+    public function kode_barang_pengiriman(){
+        return $this->hasMany(Pengiriman::class, "kode_barang");
+    }
 }

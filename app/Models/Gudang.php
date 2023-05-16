@@ -15,4 +15,8 @@ class Gudang extends Model
         'kode_gudang',
         'nama_gudang',
     ];
+
+    public function kode_gudang_penjualan(){
+        return $this->hasMany(Penjualan::class, "kode_gudang");
+    }
 }
